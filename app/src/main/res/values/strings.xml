@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Week2Assignment</string>
+    <string name="heads">1</string>
+    <string name="tails">2</string>
+    <string name="headsside">1</string>
+    <string name="tailsside">2</string>
+</resources>

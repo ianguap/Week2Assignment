@@ -1,0 +1,62 @@
+package com.example.week2assignment
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.week2assignment.ui.theme.Week2AssignmentTheme
+
+
+
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            Week2AssignmentTheme {
+                // A surface container using the 'background' color from the theme
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    Greeting("Android")
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun Greeting(name: String) {
+    var flip by remember { mutableStateOf(1) }
+    Column() {
+        when (flip) {
+            1 -> Image(painter = painterResource(id = R.drawable.heads), contentDescription = stringResource(id = R.string.heads))
+            2 -> Image(painter = painterResource(id = R.drawable.tails), contentDescription = stringResource(id = R.string.tails))
+        }
+        Button(onClick = { flip = (1..2).random() }
+
+        ) {
+            Text("Flip Coin")
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    Week2AssignmentTheme {
+        Greeting("Android")
+    }
+}
